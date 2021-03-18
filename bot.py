@@ -9,6 +9,8 @@ CONSUMER_KEY = str(os.environ.get('PEIXESFODAS_CONSUMER_KEY'))
 CONSUMER_SECRET = str(os.environ.get('PEIXESFODAS_CONSUMER_SECRET'))
 ACCESS_KEY = str(os.environ.get('PEIXESFODAS_ACCESS_KEY'))
 ACCESS_SECRET = str(os.environ.get('PEIXESFODAS_ACCESS_SECRET'))
+GOOGLE_API_KEY= str(os.environ.get('GOOGLE_API_KEY'))
+GOOGLE_PROJECT_KEY= str(os.environ.get('GOOGLE_PROJECT_KEY'))
 
 
 #AUTENTICAÇÃO
