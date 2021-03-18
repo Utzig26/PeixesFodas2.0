@@ -40,7 +40,7 @@ query = fish_r[num[0]]
 query = query[0:len(query)-1] + " peixe"
 print(query)
 
-gis = GoogleImagesSearch('AIzaSyCEW9Rimxwv5QU4Fu6HoUbtwGeYVdrVtL8', 'e13ca726c4a88dc1e')
+gis = GoogleImagesSearch(GOOGLE_API_KEY, GOOGLE_PROJECT_KEY)
 
 _search_params = {
     'q': query,
