@@ -18,20 +18,20 @@ auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
 api = tweepy.API(auth)
 
-with open("files/fishes.txt","r",encoding="utf8") as f:
+with open("bots/PeixesFodas2.0/files/fishes.txt","r",encoding="utf8") as f:
     fish_r = f.readlines()
 f.close()
 
-with open("files/cont.txt","r",encoding="utf8") as f:
+with open("bots/PeixesFodas2.0/files/cont.txt","r",encoding="utf8") as f:
     num = f.readlines()
     num = [int(s) for s in num[0].split() if s.isdigit()]
 f.close()
 
-with open("files/cont.txt","w",encoding="utf8") as f:
+with open("bots/PeixesFodas2.0/files/cont.txt","w",encoding="utf8") as f:
     f.write(str(num[0]+1))
 f.close()
 
-with open("files/cont_real.txt","r",encoding="utf8") as f:
+with open("bots/PeixesFodas2.0/files/cont_real.txt","r",encoding="utf8") as f:
     num_real = f.readlines()
     num_real = [int(s) for s in num_real[0].split() if s.isdigit()]
 f.close()
@@ -53,16 +53,16 @@ _search_params = {
 }
 
 try:
-    gis.search(search_params=_search_params, path_to_dir='images/' + str(num))
+    gis.search(search_params=_search_params, path_to_dir='bots/PeixesFodas2.0/images/' + str(num))
 except:
     print('f')
 
-path = 'images/' + str(num)+'/'
+path = 'bots/PeixesFodas2.0/images/' + str(num)+'/'
 max_bytes = 50000
 sec_max_bytes = 80000
 
-if os.path.exists('images/' + str(num)):
-    for filename in os.listdir('images/' + str(num)):
+if os.path.exists('bots/PeixesFodas2.0/images/' + str(num)):
+    for filename in os.listdir('bots/PeixesFodas2.0/images/' + str(num)):
         print(filename)
         file = open(path + filename)
         file.seek(0, os.SEEK_END)
@@ -84,9 +84,9 @@ if os.path.exists(path+'2.jpg'):
 if os.path.exists(path+'1.jpg'):
     images.append(path + '1.jpg')
     media_ids = [api.media_upload(i).media_id_string for i in images]
-    #api.update_status(status="Peixe foda #" + str(num_real[0]) + " - " +fish_r[num[0]], media_ids=media_ids)
+    api.update_status(status="Peixe foda #" + str(num_real[0]) + " - " +fish_r[num[0]], media_ids=media_ids)
 
-    with open("files/cont_real.txt","w",encoding="utf8") as f:
+    with open("bots/PeixesFodas2.0/files/cont_real.txt","w",encoding="utf8") as f:
         f.write(str(num_real[0]+1))
     f.close()
 
@@ -96,5 +96,5 @@ if os.path.exists(path+'2.jpg'):
 if os.path.exists(path+'1.jpg'):
     os.remove(path + '1.jpg')
 
-if os.path.exists('images/'):
-    shutil.rmtree('/images')
+if os.path.exists('bots/PeixesFodas2.0/images/'):
+    shutil.rmtree('bots/PeixesFodas2.0/images')
