@@ -34,8 +34,9 @@ def twitterPost(image, conts, fish, ACCESS_KEY, ACCESS_SECRET, CONSUMER_KEY, CON
     api = tweepy.API(auth)
 
     media_ids = [api.media_upload(i).media_id_string for i in image]
-    api.update_status(status="Peixe foda #" + str(conts[1]) + " - " +fish, media_ids=media_ids)
-
+    response = api.update_status(status="Peixe foda #" + str(conts[1]) + " - " +fish, media_ids=media_ids)
+    return response
+    
 #Finding Nemo
 def main():
     fm = fishManager.fishManager

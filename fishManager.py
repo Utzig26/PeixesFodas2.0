@@ -27,13 +27,14 @@ class fishManager:
         f.close()
 
         fish = fish_r[numFish]
-        fish = str(fish[0:len(fish)-1]) + " peixe"
+        fish = str(fish[0:len(fish)-1])
 
         return fish
 
     def fishImage(query, API_KEY, PROJECT_KEY):
         #QUERY SEARCH
         gis = GoogleImagesSearch(API_KEY, PROJECT_KEY)
+        query = query + " peixe"
         _search_params = {
             'q': query,
             'num': 1,
